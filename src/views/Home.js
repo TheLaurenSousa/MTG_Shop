@@ -11,18 +11,22 @@ export default () => {
         if(isSubmitted){
             axios.get(`https://api.magicthegathering.io/v1/cards?name=${search}`)
                 .then(response => { setResponseData(response.data.cards)})
+            setIsSubmitted(isSubmitted => !isSubmitted);
         }
     }, [isSubmitted]);
 
-    const Search = () => {
+    const Search = (e) => {
+        e.preventDefault();
         setIsSubmitted(isSubmitted => !isSubmitted);
     }
 
     return (
         <div>
             <h1>MTG Shop</h1>
-            <input type='text' placeholder='Enter a Card Name' onChange={(e) => setSearch(e.target.value)}/>
-            <button onClick={Search}>Search</button>
+            <form onSubmit={Search}>
+                <input type='text' placeholder='Enter a Card Name' onChange={(e) => setSearch(e.target.value)}/>
+                <input type='submit' value='Search'/>
+            </form>
             <ul id='cardGallery'>
                 {responseData ? responseData.map((card, index) => {
                     if(card.imageUrl){

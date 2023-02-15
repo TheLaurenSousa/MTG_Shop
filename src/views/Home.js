@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 export default () => {
     const [ responseData, setResponseData ] = useState(null);
     const [ isSubmitted, setIsSubmitted ] = useState(false);
+    const [ search, setSearch ] = useState('');
 
     useEffect( () => {
         if(isSubmitted){
-            axios.get('https://api.magicthegathering.io/v1/cards')
+            axios.get(`https://api.magicthegathering.io/v1/cards?name=${search}`)
                 .then(response => { setResponseData(response.data.cards)})
         }
     }, [isSubmitted]);
@@ -20,7 +21,8 @@ export default () => {
     return (
         <div>
             <h1>MTG Shop</h1>
-            <button onClick={Search}>Click me!</button>
+            <input type='text' placeholder='Enter a Card Name' onChange={(e) => setSearch(e.target.value)}/>
+            <button onClick={Search}>Search</button>
             <ul id='cardGallery'>
                 {responseData ? responseData.map((card, index) => {
                     if(card.imageUrl){

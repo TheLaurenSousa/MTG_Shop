@@ -16,7 +16,6 @@ export default () => {
             }
         }
         getCardInfo();
-        console.log(data);
     }, [id]);
 
     return (
@@ -31,12 +30,15 @@ export default () => {
                         <p>Mana Cost: {data.manaCost}</p>
                         <p>Colors: {data.colors}</p>
                         <p>Type: {data.type}</p>
-                        <p>
-                            Subtypes: 
-                            {data.subtypes.map((subtype, index) => {
-                                return (<p key={index}>{subtype}</p>)
-                            })}
-                        </p>
+                        {data.subtype? 
+                            <div>
+                                Subtypes: 
+                                {data.subtypes.map((subtype, index) => {
+                                    return (<p key={index}>{subtype}</p>)
+                                })}
+                            </div>
+                            : null
+                        }
                         <p>Rarity: {data.rarity}</p>
                         <p>Text: {data.text}</p>
                         <p>Power: {data.power}</p>

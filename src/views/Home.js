@@ -31,7 +31,7 @@ export default () => {
                 {responseData ? responseData.map((card, index) => {
                     if(card.imageUrl){
                         const url = `/card/${card.id}`;
-                        return(<Link to={url} key={index}><li><img src={card.imageUrl} alt={card.name}/></li></Link>)
+                        return(<Link to={url} key={index}><li><img src={card.imageUrl} alt={card.name} className='card'/></li></Link>)
                     }
                 }):null}
             </ul>

@@ -11,7 +11,6 @@ export default () => {
             try {
                 const res = await axios.get(`https://api.magicthegathering.io/v1/cards?id=${id}`);
                 setData(res.data.cards[0]);
-                console.log(res);
             } catch (e) {
                 console.log(e);
             }

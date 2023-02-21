@@ -19,3 +19,15 @@
 .card {
   width: 300px;
 }
+
+.cardInfo {
+  margin: 50px auto;
+  padding: 20px;
+  width: 75%;
+  border: 2px solid black;
+  display: flex;
+}
+
+#cardName {
+  font-weight: bold;
+}

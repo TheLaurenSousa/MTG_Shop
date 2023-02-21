@@ -21,12 +21,12 @@ export default () => {
     return (
         <div>
             {data ? 
-                <div>
+                <div className='cardInfo'>
                     <div>
-                        <img src={data.imageUrl} alt={data.name}/>
+                        <img src={data.imageUrl} alt={data.name} className="card"/>
                     </div>
                     <div>
-                        <p>{data.name}</p>
+                        <h1>{data.name}</h1>
                         <p>Mana Cost: {data.manaCost}</p>
                         <p>Colors: {data.colors}</p>
                         <p>Type: {data.type}</p>

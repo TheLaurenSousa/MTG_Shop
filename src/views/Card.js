@@ -44,6 +44,12 @@ export default () => {
                         <p><span className='feature'>Text: </span>{data.text}</p>
                         <p><span className='feature'>Power: </span>{data.power}</p>
                         <p><span className='feature'>Toughness: </span>{data.toughness}</p>
+                        {data.flavor?
+                            <div>
+                                <p><span className='feature'>Flavor Text: </span>{data.flavor}</p>
+                            </div>
+                            : null
+                        }
                     </div>
                 </div>
             :null}

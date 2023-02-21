@@ -28,6 +28,16 @@
   display: flex;
 }
 
-#cardName {
+#artist {
+  margin: 0;
+}
+
+#cardDescription{
+  width: 75%;
+  padding-left: 100px;
+  text-align: left;
+}
+
+.feature{
   font-weight: bold;
 }
